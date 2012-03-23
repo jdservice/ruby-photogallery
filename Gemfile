@@ -7,6 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'mysql2'
 
+gem 'image_science'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,7 +28,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
+group :test, :development do
   gem 'rspec-rails'
   # Pretty printed test output
   gem 'turn', :require => false
