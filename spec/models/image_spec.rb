@@ -8,3 +8,18 @@ describe Image do
     image.file_name.should eq('xyzzy.jpg')
   end
 end
+
+describe Image do
+  it "should create an image in gallery group" do
+    image = Image.create!(
+      :group => Group.create!(
+        :name => 'Graduation',
+        :description => 'ROR Master Class Graduation'
+      ),
+      :file_name => 'plugh.jpg'
+    )
+    image.group.name.should eq('Graduation')
+  end
+end
+
+
