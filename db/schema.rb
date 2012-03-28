@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20120323115042) do
   end
 
   create_table "metadata", :force => true do |t|
+    t.integer  "image_id"
     t.string   "name"
     t.string   "value"
     t.datetime "created_at"
