@@ -1,36 +1,26 @@
 require 'spec_helper'
 
 describe Group do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
-
-describe Group do
   
-  before(:all) db
+  before(:all) do
     @list_of_groups = [
-      ['group1','group description'],  
-      ['group2','group description'],  
-      ['group3','group description'],  
-      ['group4','group description'],  
-      ['group5','group description']  
+      ['Group 1', 'Group Description 1'],
+      ['Group 2', 'Group Description 2'],
+      ['Group 3', 'Group Description 3'],
+      ['Group 4', 'Group Description 4'],
+      ['Group 5', 'Group Description 5']
       ]
   end
   
-  it "create groups given a list of groups" do
+  it "creates groups given a list of groups" do
     @list_of_groups.each do |g|
-      pp g
-      # Group.create!(
-      #  :name => g[0],
-      #  :description => g[1]
-      )
+      Group.create!(
+        :name => g[0],
+        :description => g[1])
     end
+    Group.all.count.should eq(5)
+    puts Group.find_by_name('Group 1').name
+    
   end
   
-  it "should create a group with a name of group" do
-    group = Group.create!(
-      :name => 'test group'
-    )
-    group.name.should eq('test group')
-  end
-
 end
