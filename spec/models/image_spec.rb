@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Image do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should create an image given a file name" do
+    image = Image.create!(
+      :file_name => 'xyzz.jpg'
+    )
+    image.file_name.should eq('xyzz.jpg')
+  end
 end
