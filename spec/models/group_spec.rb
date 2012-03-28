@@ -12,13 +12,15 @@ describe Group do
       ]
   end
   
-  it "creates groups given a list of images" do
+  it "creates groups given a list of groups" do
     @list_of_groups.each do |g|
       pp g
-      #Group.create!(
-      #  :name=> g[0],
-      #  :description=> g[1]
-      )
+      puts "---"
+      # Group.create!(
+      #   :name => g[0],
+      #   :description => g[1])
     end
+    
   end
+  
 end
