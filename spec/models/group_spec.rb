@@ -14,12 +14,13 @@ describe Group do
   
   it "creates groups given a list of groups" do
     @list_of_groups.each do |g|
-      pp g
-      puts "---"
-      # Group.create!(
-      #   :name => g[0],
-      #   :description => g[1])
+      Group.create!(
+        :name => g[0],
+        :description => g[1])
     end
+    Group.all.count.should eq(5)    
+    Group.find_by_name('Group 1').name.should eq(@list_of_groups [0][0])
+    Group.find_by_name('Group 2').name.should eq(@list_of_groups [1][0])
     
   end
   
