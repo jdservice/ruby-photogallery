@@ -28,7 +28,7 @@ describe Metadatum do
     @list_of_metadata.each do |g|
       Metadatum.create!(
         :id => g[0],
-#        :image_id => g[1],
+        :image_id => g[1],
         :name => g[2],
         :value => g[3],
         :created_at => g[4],
