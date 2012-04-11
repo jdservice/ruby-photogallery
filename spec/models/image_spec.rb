@@ -16,6 +16,8 @@ require 'spec_helper'
 
 describe Image do
 
+  tags = %w(tag-1 tag-2 tag-3 tag-4 tag-5)
+
   it "should create an image given a file name" do
     image = Image.create!(
       :file_name => 'xyzz.jpg'
@@ -24,7 +26,7 @@ describe Image do
   end
 
   it "should create a tag given an image" do
-
+    pp tags
   end
 
 end
