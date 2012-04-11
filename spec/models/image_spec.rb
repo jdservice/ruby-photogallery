@@ -42,8 +42,9 @@ describe Image do
     Tag.all.each { |t| @image.tags << t }
     image = Image.create!(:file_name => 'xyzzy.jpg')
     tags_2.each { |t| image.tags << Tag.create!(:name => t) }
-    Tag.find_by_name('tag-1').images.each { |i| pp i.file_name }
 
+    image.tags << Tag.find_by_name('tag-1')
+    Tag.find_by_name('tag-1').images.each { |i| pp i.file_name }
   end
 
 end
