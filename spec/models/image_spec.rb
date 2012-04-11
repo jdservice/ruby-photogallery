@@ -16,7 +16,7 @@ require 'spec_helper'
 
 describe Image do
 
-  tags = %w(tag-1 tag-2 tag-3 tag-4 tag-5)
+  tags = %w(tag-1 tag-2 tag-3 tag-4 tag-5 tag-6)
 
   it "should create an image given a file name" do
     image = Image.create!(
@@ -26,7 +26,12 @@ describe Image do
   end
 
   it "should create a tag given an image" do
-    pp tags
+    tags.each do |t|
+      Tag.create!(
+          :name  => t
+      )
+    end
+    Tag.all.count.should eq(tags.count)
   end
 
 end
