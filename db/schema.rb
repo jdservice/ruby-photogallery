@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323115042) do
+ActiveRecord::Schema.define(:version => 20120411172203) do
 
   create_table "entities", :force => true do |t|
     t.integer  "image_id"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20120323115042) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "images_tags", :id => false, :force => true do |t|
+    t.integer "image_id"
+    t.integer "tag_id"
+  end
+
+  add_index "images_tags", ["image_id", "tag_id"], :name => "index_images_tags_on_image_id_and_tag_id", :unique => true
 
   create_table "metadata", :force => true do |t|
     t.integer  "image_id"
