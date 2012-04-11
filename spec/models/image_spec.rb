@@ -18,20 +18,29 @@ describe Image do
 
   tags = %w(tag-1 tag-2 tag-3 tag-4 tag-5 tag-6)
 
-  it "should create an image given a file name" do
-    image = Image.create!(
+  before(:each) do
+    Image.delete_all
+    Tag.delete_all
+
+    @image = Image.create!(
       :file_name => 'xyzz.jpg'
     )
-    image.file_name.should eq('xyzz.jpg')
-  end
+    @image.file_name.should eq('xyzz.jpg')
 
-  it "should create a tag given an image" do
     tags.each do |t|
       Tag.create!(
           :name  => t
       )
     end
+  end
+
+  it "should create tags " do
     Tag.all.count.should eq(tags.count)
+  end
+
+  it "should add tags to a given image" do
+    pp @image
+
   end
 
 end
