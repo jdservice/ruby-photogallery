@@ -17,6 +17,7 @@ require 'spec_helper'
 describe Image do
 
   tags = %w(tag-1 tag-2 tag-3 tag-4 tag-5 tag-6)
+  tags_2 = %w(tag-7 tag-8 tag-9 tag-10)
 
   before(:each) do
     Image.delete_all
@@ -25,7 +26,6 @@ describe Image do
     @image = Image.create!(
       :file_name => 'xyzz.jpg'
     )
-    @image.file_name.should eq('xyzz.jpg')
 
     tags.each do |t|
       Tag.create!(
@@ -39,7 +39,10 @@ describe Image do
   end
 
   it "should add tags to a given image" do
-    pp @image
+    Tag.all.each { |t| @image.tags << t }
+    image = Image.create!(:file_name => 'xyzzy.jpg')
+    tags_2.each { |t| image.tags << Tag.create!(:name => t) }
+    Tag.find_by_name('tag-1').images.each { |i| pp i.file_name }
 
   end
 
