@@ -39,7 +39,8 @@ describe Image do
   end
 
   it "should add tags to a given image" do
-    # Tag @image with all available tags
+    # Tag @image with all available tags, note an instance variable starting with an @
+    # is different from a local variable
     Tag.all.each { |t| @image.tags << t }
 
     # Create a new image
@@ -47,6 +48,8 @@ describe Image do
 
     # Create new tags and add them to the image
     tags_2.each { |t| image.tags << Tag.create!(:name => t) }
+
+    # Find one tag and add it to the image
     image.tags << Tag.find_all_by_name('tag-1')
 
     # Find a tag and see which images are tagged with it.
