@@ -39,11 +39,17 @@ describe Image do
   end
 
   it "should add tags to a given image" do
+    # Tag @image with all available tags
     Tag.all.each { |t| @image.tags << t }
-    image = Image.create!(:file_name => 'xyzzy.jpg')
-    tags_2.each { |t| image.tags << Tag.create!(:name => t) }
 
-    image.tags << Tag.find_by_name('tag-1')
+    # Create a new image
+    image = Image.create!(:file_name => 'xyzzy.jpg')
+
+    # Create new tags and add them to the image
+    tags_2.each { |t| image.tags << Tag.create!(:name => t) }
+    image.tags << Tag.find_all_by_name('tag-1')
+
+    # Find a tag and see which images are tagged with it.
     Tag.find_by_name('tag-1').images.each { |i| pp i.file_name }
   end
 
