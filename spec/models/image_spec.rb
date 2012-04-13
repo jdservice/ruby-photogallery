@@ -16,15 +16,44 @@ require 'spec_helper'
 
 describe Image do
 
-  it "should create an image given a file name" do
-    image = Image.create!(
+  tags = %w(tag-1 tag-2 tag-3 tag-4 tag-5 tag-6)
+  tags_2 = %w(tag-7 tag-8 tag-9 tag-10)
+
+  before(:each) do
+    Image.delete_all
+    Tag.delete_all
+
+    @image = Image.create!(
       :file_name => 'xyzz.jpg'
     )
-    image.file_name.should eq('xyzz.jpg')
+
+    tags.each do |t|
+      Tag.create!(
+          :name  => t
+      )
+    end
   end
 
-  it "should create a tag given an image" do
+  it "should create tags " do
+    Tag.all.count.should eq(tags.count)
+  end
 
+  it "should add tags to a given image" do
+    # Tag @image with all available tags, note an instance variable starting with an @
+    # is different from a local variable
+    Tag.all.each { |t| @image.tags << t }
+
+    # Create a new image
+    image = Image.create!(:file_name => 'xyzzy.jpg')
+
+    # Create new tags and add them to the image
+    tags_2.each { |t| image.tags << Tag.create!(:name => t) }
+
+    # Find one tag and add it to the image
+    image.tags << Tag.find_all_by_name('tag-1')
+
+    # Find a tag and see which images are tagged with it.
+    Tag.find_by_name('tag-1').images.each { |i| pp i.file_name }
   end
 
 end
