@@ -23,6 +23,11 @@ describe Image do
     Image.delete_all
     Tag.delete_all
 
+    # Alternate syntax for a create
+    #@image = Image.new
+    #@image.file_name = 'xyzz.jp'
+    #@image.save!
+
     @image = Image.create!(
       :file_name => 'xyzz.jpg'
     )
@@ -32,6 +37,8 @@ describe Image do
           :name  => t
       )
     end
+
+
   end
 
   it "should create tags " do
@@ -42,6 +49,7 @@ describe Image do
     # Tag @image with all available tags, note an instance variable starting with an @
     # is different from a local variable
     Tag.all.each { |t| @image.tags << t }
+    @image.tags.count.should eq(tags.count)
 
     # Create a new image
     image = Image.create!(:file_name => 'xyzzy.jpg')
@@ -54,6 +62,17 @@ describe Image do
 
     # Find a tag and see which images are tagged with it.
     Tag.find_by_name('tag-1').images.each { |i| pp i.file_name }
+    Tag.find_by_name('tag-1').images.count.should eq(2)
+  end
+
+  it "should add metadata given an image" do
+    for i in 1..10 do
+      @image.metadata << Metadatum.create!(
+          :name => "meta-#{i}",
+          :value => "value-#{i}"
+      )
+    end
+    @image.metadata.count.should eq(10)
   end
 
 end
