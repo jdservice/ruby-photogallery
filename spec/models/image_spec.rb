@@ -74,12 +74,11 @@ describe Image do
 
   it "should add metadata given an image" do
     for i in 1..10 do
-      @image.metadata << Metadatum.create!(
-          name: "meta-#{i}",
-          value: "value-#{i}"
-      )
+      @image.metadata << Metadatum.create!(name: "meta-#{i}", value: "value-#{i}")
     end
     @image.metadata.count.should eq(10)
+    image = Metadatum.find_by_name('meta-1').image
+    image.should eq(@image)
   end
 
 end
