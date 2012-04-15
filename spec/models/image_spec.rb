@@ -65,7 +65,7 @@ describe Image do
     Tag.find_by_name('tag-1').images.count.should eq(2)
   end
 
-  it "should add multiple tags to an image in a single operation one method" do
+  it "should add multiple tags to an image in a single operation using wildcards" do
     many_tags = Tag.where{(name =~ 'tag%')}
     many_tags.count.should eq(tags.count)
     @image.tags << many_tags
