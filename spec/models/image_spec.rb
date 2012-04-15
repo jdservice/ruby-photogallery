@@ -67,16 +67,16 @@ describe Image do
 
   it "should add multiple tags to an image in a single operation" do
     many_tags = Tag.where{(name =~ 'tag%')}
-    many_tags.count.should eq(6)
+    many_tags.count.should eq(tags.count)
     @image.tags << many_tags
-    @image.tags.count.should eq(many_tags.count)
+    @image.tags.count.should eq(tags.count)
   end
 
   it "should add metadata given an image" do
     for i in 1..10 do
       @image.metadata << Metadatum.create!(
-          :name => "meta-#{i}",
-          :value => "value-#{i}"
+          name: "meta-#{i}",
+          value: "value-#{i}"
       )
     end
     @image.metadata.count.should eq(10)
