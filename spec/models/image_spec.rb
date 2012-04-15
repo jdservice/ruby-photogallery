@@ -77,7 +77,7 @@ describe Image do
       @image.metadata << Metadatum.create!(name: "meta-#{i}", value: "value-#{i}")
     end
     @image.metadata.count.should eq(10)
-    image = Metadatum.find_by_name('meta-1').image
+    image = Metadatum.find_all_by_name('meta-1').first.image
     image.should eq(@image)
   end
 
