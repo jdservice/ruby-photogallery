@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20120411172539) do
   add_index "images_tags", ["image_id", "tag_id"], :name => "index_images_tags_on_image_id_and_tag_id", :unique => true
 
   create_table "metadata", :force => true do |t|
+    t.integer  "image_id"
     t.string   "name"
     t.string   "value"
     t.datetime "created_at"
