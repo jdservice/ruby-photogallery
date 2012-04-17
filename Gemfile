@@ -6,6 +6,7 @@ gem 'rails', '3.1.1'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'squeel'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
 # gem 'image_science'
@@ -20,9 +21,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-# Use unicorn as the web server
-# gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
