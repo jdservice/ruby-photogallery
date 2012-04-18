@@ -25,11 +25,13 @@ describe Image do
 
     # Alternate syntax for a create
     #@image = Image.new
-    #@image.file_name = 'xyzz.jp'
+    #@image.file_name = 'plugh.jpg'
+    #@image.name = 'plugh'
     #@image.save!
 
     @image = Image.create!(
-      :file_name => 'xyzz.jpg'
+      :name => 'plugh',
+      :file_name => 'plugh.jpg'
     )
 
     tags.each do |t|
@@ -52,7 +54,7 @@ describe Image do
     @image.tags.count.should eq(tags.count)
 
     # Create a new image
-    image = Image.create!(:file_name => 'xyzzy.jpg')
+    image = Image.create!(:file_name => 'xyzzy.jpg', :name => 'xyzzy')
 
     # Create new tags and add them to the image
     tags_2.each { |t| image.tags << Tag.create!(:name => t) }
