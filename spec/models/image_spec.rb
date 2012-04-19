@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #
+#
 
 require 'spec_helper'
 
@@ -18,18 +19,23 @@ describe Image do
 
   tags = %w(tag-1 tag-2 tag-3 tag-4 tag-5 tag-6)
   tags_2 = %w(tag-7 tag-8 tag-9 tag-10)
+  
+  etypes = %w(People Places Groups Year Collection)
 
   before(:each) do
     Image.delete_all
     Tag.delete_all
+    EnumeratedType.delete_all
 
     # Alternate syntax for a create
     #@image = Image.new
-    #@image.file_name = 'xyzz.jp'
+    #@image.file_name = 'plugh.jpg'
+    #@image.name = 'plugh'
     #@image.save!
 
     @image = Image.create!(
-      :file_name => 'xyzz.jpg'
+      :name => 'plugh',
+      :file_name => 'plugh.jpg'
     )
 
     tags.each do |t|
@@ -38,13 +44,23 @@ describe Image do
       )
     end
 
-
+    etypes.each do |g|
+      EnumeratedType.create!(
+        :name => 'plugh',
+        :group_name => g
+      )
+    end
+    
   end
 
   it "should create tags " do
     Tag.all.count.should eq(tags.count)
   end
 
+  it "should create enumerated_types " do
+    EnumeratedType.all.count.should eq(etypes.count)
+  end
+  
   it "should add tags to a given image" do
     # Tag @image with all available tags, note an instance variable starting with an @
     # is different from a local variable
@@ -52,7 +68,7 @@ describe Image do
     @image.tags.count.should eq(tags.count)
 
     # Create a new image
-    image = Image.create!(:file_name => 'xyzzy.jpg')
+    image = Image.create!(:file_name => 'xyzzy.jpg', :name => 'xyzzy')
 
     # Create new tags and add them to the image
     tags_2.each { |t| image.tags << Tag.create!(:name => t) }
@@ -79,7 +95,10 @@ describe Image do
 
   it "should add metadata given an image" do
     for i in 1..10 do
+      @image.metadata << Metadatum.create!(
       @image.metadata << Metadatum.create!(name: "meta-#{i}", value: "value-#{i}")
+          :value => "value-#{i}"
+      )
     end
     @image.metadata.count.should eq(10)
     image = Metadatum.find_all_by_name('meta-1').first.image
