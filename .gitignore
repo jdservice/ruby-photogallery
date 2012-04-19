@@ -1,5 +1,11 @@
 .bundle
+.idea
 db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
+<<<<<<< HEAD
+config/database.yml
+=======
+config/database.yml
+>>>>>>> amalc/master
