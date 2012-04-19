@@ -81,6 +81,15 @@ describe Image do
     Tag.find_by_name('tag-1').images.count.should eq(2)
   end
 
+  it "should add numerated types to a given image" do
+    
+    #EnumeratedType.all.each { |g| @image.enumerated_types << g }
+    EnumeratedType.all.each { |g| pp g.group_name }
+    @image.enumerated_types.count.should eq(types.count)
+    
+
+  end 
+
   it "should add metadata given an image" do
     for i in 1..10 do
       @image.metadata << Metadatum.create!(

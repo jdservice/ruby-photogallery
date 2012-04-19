@@ -4,5 +4,4 @@ class EnumeratedType < ActiveRecord::Base
 
   validates_presence_of :name, :group_name
   
-  
 end
