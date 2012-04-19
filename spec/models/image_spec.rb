@@ -11,7 +11,6 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #
-#
 
 require 'spec_helper'
 
@@ -81,6 +80,11 @@ describe Image do
     Tag.find_by_name('tag-1').images.count.should eq(2)
   end
 
+  it "should add enumerated_types to a given image" do
+    EnumeratedType.all.each { |g| @image.enumerated_types << g }
+    @image.enumerated_types.count.should eq(etypes.count)
+  end
+    
   it "should add multiple tags to an image in a single operation using wildcards" do
     many_tags = Tag.where{(name =~ 'tag%')}
     many_tags.count.should eq(tags.count)
@@ -95,10 +99,10 @@ describe Image do
 
   it "should add metadata given an image" do
     for i in 1..10 do
-      @image.metadata << Metadatum.create!(
+      #@image.metadata << Metadatum.create!(
       @image.metadata << Metadatum.create!(name: "meta-#{i}", value: "value-#{i}")
-          :value => "value-#{i}"
-      )
+          #:value => "value-#{i}"
+      #)
     end
     @image.metadata.count.should eq(10)
     image = Metadatum.find_all_by_name('meta-1').first.image
