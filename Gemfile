@@ -10,7 +10,6 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'authlogic'
 gem 'squeel'
 
-
 # gem 'image_science'
 
 # Gems used only for assets and not required
