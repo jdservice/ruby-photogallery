@@ -27,13 +27,6 @@ ActiveRecord::Schema.define(:version => 20120419200309) do
 
   add_index "enumerated_types_images", ["image_id", "enumerated_type_id"], :name => "index_enumerated_types_images_on_image_id_and_enumerated_type_id", :unique => true
 
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "images", :force => true do |t|
     t.integer  "group_id"
     t.string   "file_name"
