@@ -18,10 +18,13 @@ describe Image do
 
   tags = %w(tag-1 tag-2 tag-3 tag-4 tag-5 tag-6)
   tags_2 = %w(tag-7 tag-8 tag-9 tag-10)
+  
+  etypes = %w(People Places Groups Year Collection)
 
   before(:each) do
     Image.delete_all
     Tag.delete_all
+    EnumeratedType.delete_all
 
     # Alternate syntax for a create
     #@image = Image.new
@@ -40,13 +43,23 @@ describe Image do
       )
     end
 
-
+    etypes.each do |g|
+      EnumeratedType.create!(
+        :name => 'plugh',
+        :group_name => g
+      )
+    end
+    
   end
 
   it "should create tags " do
     Tag.all.count.should eq(tags.count)
   end
 
+  it "should create enumerated_types " do
+    EnumeratedType.all.count.should eq(etypes.count)
+  end
+  
   it "should add tags to a given image" do
     # Tag @image with all available tags, note an instance variable starting with an @
     # is different from a local variable
@@ -67,6 +80,11 @@ describe Image do
     Tag.find_by_name('tag-1').images.count.should eq(2)
   end
 
+  it "should add enumerated_types to a given image" do
+    EnumeratedType.all.each { |g| @image.enumerated_types << g }
+    @image.enumerated_types.count.should eq(etypes.count)
+  end
+    
   it "should add multiple tags to an image in a single operation using wildcards" do
     many_tags = Tag.where{(name =~ 'tag%')}
     many_tags.count.should eq(tags.count)
@@ -81,7 +99,10 @@ describe Image do
 
   it "should add metadata given an image" do
     for i in 1..10 do
+      #@image.metadata << Metadatum.create!(
       @image.metadata << Metadatum.create!(name: "meta-#{i}", value: "value-#{i}")
+          #:value => "value-#{i}"
+      #)
     end
     @image.metadata.count.should eq(10)
     image = Metadatum.find_all_by_name('meta-1').first.image
