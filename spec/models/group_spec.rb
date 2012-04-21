@@ -1,3 +1,5 @@
+#re published 21Apr2012
+
 require 'spec_helper'
 
 describe Group do
