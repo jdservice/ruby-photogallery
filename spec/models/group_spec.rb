@@ -1,10 +1,12 @@
+#re published 21Apr2012
+
 require 'spec_helper'
 
 describe Group do
   
   before(:all) do
     @list_of_groups = [
-      ['Group 1', 'Group Description 1'],
+      ['Groupe 1', 'Group Description 1'],
       ['Group 2', 'Group Description 2'],
       ['Group 3', 'Group Description 3'],
       ['Group 4', 'Group Description 4'],
@@ -18,10 +20,17 @@ describe Group do
         :name => g[0],
         :description => g[1])
     end
-    Group.all.count.should eq(5)    
-    Group.find_by_name('Group 1').name.should eq(@list_of_groups [0][0])
-    Group.find_by_name('Group 2').name.should eq(@list_of_groups [1][0])
-    
+    # simple test examples
+    Group.all.count.should eq(5)
+    Group.find_by_name(@list_of_groups[0][0]).name.should eq(@list_of_groups[0][0])
+    Group.find_by_name(@list_of_groups[0][0]).name.should_not eq(@list_of_groups[1][0])    
   end
-  
+
+  it "requires that group name be unique" do
+    Group.create!(:name => 'unique', :description => '')
+    group = Group.new(:name => 'unique', :description => 'non blank')
+    group.should_not be_valid
+    group.errors[:name].should include("has already been taken")
+  end
+
 end

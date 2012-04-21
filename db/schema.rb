@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323115042) do
-
-  create_table "entities", :force => true do |t|
-    t.integer  "image_id"
-    t.string   "name"
-    t.string   "entity_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20120419200309) do
 
   create_table "enumerated_types", :force => true do |t|
     t.string   "group_name"
@@ -28,12 +20,12 @@ ActiveRecord::Schema.define(:version => 20120323115042) do
     t.datetime "updated_at"
   end
 
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "enumerated_types_images", :id => false, :force => true do |t|
+    t.integer "image_id"
+    t.integer "enumerated_type_id"
   end
+
+  add_index "enumerated_types_images", ["image_id", "enumerated_type_id"], :name => "index_enumerated_types_images_on_image_id_and_enumerated_type_id", :unique => true
 
   create_table "images", :force => true do |t|
     t.integer  "group_id"
@@ -44,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20120323115042) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "images_tags", :id => false, :force => true do |t|
+    t.integer "image_id"
+    t.integer "tag_id"
+  end
+
+  add_index "images_tags", ["image_id", "tag_id"], :name => "index_images_tags_on_image_id_and_tag_id", :unique => true
 
   create_table "metadata", :force => true do |t|
     t.integer  "image_id"
