@@ -5,4 +5,8 @@ log/*.log
 tmp/
 .sass-cache/
 config/database.yml
+<<<<<<< HEAD
 db/schema.rb
+=======
+schema.rb
+>>>>>>> amalc/master
