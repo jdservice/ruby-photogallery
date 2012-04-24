@@ -1,3 +1,11 @@
+%h2
+  My Account
+  
+- if flash[:notice]
+  = flash[:notice] 
+  %br  
+%br
+
 Login
 = h @user.login
 <br />

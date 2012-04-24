@@ -16,7 +16,7 @@ RubyPhotogallery::Application.routes.draw do
   resource :account, :controller => "users"
   resources :users
   resource :user_session
-  root :controller => "user_sessions", :action => "new"
+  #root :controller => "user_sessions", :action => "new"
 
   #root :controller => "user_sessions", :action => "new"
 

@@ -43,4 +43,9 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
+
+    def index
+      flash.keep
+    end
+
 end
