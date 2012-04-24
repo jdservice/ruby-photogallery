@@ -1,24 +1,21 @@
-= form_for @user do |f|
-  <p>
-  = f.label :username
-  <br />
-  = f.text_field :login
-  </p>
-  <p>
-  = f.label :email
-  <br />
-  = f.text_field :email
-  </p>
-  <p>
-  = f.label :password
-  <br />
-  = f.password_field :password
-  </p>
-  <p>
-  = f.label :password_confirmation
-  <br />
-  = f.password_field :password_confirmation
-  </p>
-  <p>
-  = f.submit "Submit"
-  </p>
+%table
+  %tr
+    %td
+      = form.label :username
+    %td
+      = form.text_field :login
+  %tr
+    %td
+      = form.label :email
+    %td
+      = form.text_field :email
+  %tr
+    %td
+      = form.label :password
+    %td
+      = form.password_field :password
+  %tr
+    %td
+      = form.label :password_confirmation
+    %td
+      = form.password_field :password_confirmation
