@@ -1,0 +1,30 @@
+%h2
+  Edit My Account
+%br
+.user
+  = form_for @user do |f|
+    %table
+      %tr
+        %td
+          = f.label :username
+        %td
+          = f.text_field :login
+      %tr
+        %td
+          = f.label :email
+        %td
+          = f.text_field :email
+      %tr
+        %td
+          = f.label :password
+        %td
+          = f.password_field :password
+      %tr
+        %td
+          = f.label :password_confirmation
+        %td
+          = f.password_field :password_confirmation         
+    %br
+    = f.submit  
+%br        
+       
