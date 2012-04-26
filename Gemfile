@@ -33,6 +33,7 @@ group :test, :development do
 
   gem 'rspec-rails'
   gem 'spork-rails'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
   # Pretty printed test output
   gem 'turn', :require => false
 end
