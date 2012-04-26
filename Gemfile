@@ -30,7 +30,6 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
-
   gem 'rspec-rails'
   gem 'spork-rails'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
