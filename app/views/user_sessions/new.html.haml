@@ -13,7 +13,7 @@
       %td
         = f.label :username
       %td
-        = f.text_field :login
+        = f.text_field :username
     %tr
       %td
         = f.label :password
@@ -26,3 +26,6 @@
         = f.label :remember_me
   %br
   = f.submit "Login"
+  
+  :javascript
+    document.getElementById("user_session_username").focus();

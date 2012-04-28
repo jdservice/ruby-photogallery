@@ -3,7 +3,7 @@
     %td
       = form.label :username
     %td
-      = form.text_field :login
+      = form.text_field :username
   %tr
     %td
       = form.label :email
@@ -19,3 +19,6 @@
       = form.label :password_confirmation
     %td
       = form.password_field :password_confirmation
+
+:javascript
+  document.getElementById("user_username").focus();
