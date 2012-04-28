@@ -35,13 +35,12 @@ end
 
 group :test do
   gem 'spork-rails'
-
   gem 'rspec-core'
   gem 'rspec-rails'
-  #gem 'test-unit'
-  #gem 'turn' , #:require => false
-  #gem 'minitest'
-  #gem 'minitest-reporters'
+#  gem 'test-unit'
+#  gem 'turn', :require => false
+#  gem 'minitest'
+#  gem 'minitest-reporters'
 end
 
 group :development do
