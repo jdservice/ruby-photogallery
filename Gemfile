@@ -30,11 +30,17 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-  gem 'spork-rails'
   gem 'cucumber-rails'
-  gem 'turn' #, :require => false
-  gem 'minitest'
-  gem 'minitest-reporters'
+end
+
+group :test do
+  gem 'spork-rails'
+  gem 'rspec-core'
+  gem 'rspec-rails'
+#  gem 'test-unit'
+#  gem 'turn', :require => false
+#  gem 'minitest'
+#  gem 'minitest-reporters'
 end
 
 group :development do
