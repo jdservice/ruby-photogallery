@@ -32,9 +32,11 @@ gem 'jquery-rails'
 group :test do
   gem 'spork-rails'
   gem 'cucumber-rails'
-  gem 'turn' #, :require => false
-  gem 'minitest'
-  gem 'minitest-reporters'
+  gem 'rspec-core'
+  #gem 'rspec-rails'
+  #gem 'turn' #, :require => false
+  #gem 'minitest'
+  #gem 'minitest-reporters'
 end
 
 group :development do
