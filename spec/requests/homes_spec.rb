@@ -8,9 +8,9 @@ describe "Homes", :type => :request do
   describe "POST /homes" do
     it "logs me in" do
       visit homes_url
-      click_link 'Log In'
+      click_link 'Login'
       page.should have_content("Username")
-      fill_in 'user_session[login]', :with => 'testuser'
+      fill_in 'user_session[username]', :with => 'testuser'
       fill_in 'user_session[password]', :with => 'good2012'
       click_button 'Login'
       page.should have_content("Successfully logged in")
