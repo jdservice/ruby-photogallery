@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20120423174323) do
   create_table "enumerated_types", :force => true do |t|
     t.string   "group_name"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "enumerated_types_images", :id => false, :force => true do |t|
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20120423174323) do
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "images", :force => true do |t|
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(:version => 20120423174323) do
     t.string   "file_type"
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "images_tags", :id => false, :force => true do |t|
@@ -55,29 +55,29 @@ ActiveRecord::Schema.define(:version => 20120423174323) do
     t.integer  "image_id"
     t.string   "name"
     t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tags", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "user_sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "user_sessions", ["session_id"], :name => "index_user_sessions_on_session_id"
   add_index "user_sessions", ["updated_at"], :name => "index_user_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "login",                            :null => false
     t.string   "email",                            :null => false
     t.string   "crypted_password",                 :null => false
