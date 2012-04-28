@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.2'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
-gem 'authlogic'
+gem 'authlogic', :git => "git://github.com/binarylogic/authlogic.git"
 gem 'squeel'
 
 # gem 'image_science'
@@ -16,8 +16,8 @@ gem 'squeel'
 # in production environments by default.
 group :assets do
   gem 'haml-rails'
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails'#, "  ~> 3.1.0"
+  gem 'coffee-rails'#, "~> 3.1.0"
   gem 'uglifier'
 end
 
@@ -29,10 +29,19 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test, :development do
+group :test do
+  gem 'cucumber-rails'
+end
 
-  gem 'rspec-rails'
+group :test do
   gem 'spork-rails'
-  # Pretty printed test output
-  gem 'turn', :require => false
+  gem 'rspec-core'
+  gem 'rspec-rails'
+#  gem 'test-unit'
+#  gem 'turn', :require => false
+#  gem 'minitest'
+#  gem 'minitest-reporters'
+end
+
+group :development do
 end

@@ -1,0 +1,17 @@
+%h2
+  Edit My Account
+  
+- if flash[:notice]
+  = flash[:notice]
+  %br
+
+%br
+.user
+= form_for @user do |f|
+
+  = render :partial => "form", :object => f
+
+  %br
+  = f.submit  
+%br        
+       
