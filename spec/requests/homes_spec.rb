@@ -1,11 +1,19 @@
 require 'spec_helper'
 
-describe "Homes" do
-  describe "GET /homes" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get homes_index_path
-      response.status.should be(200)
+describe "Homes", :type => :request do
+  before :each do
+    User.create(:login => 'testuser', :password => 'good2012')
+  end
+  
+  describe "POST /homes" do
+    it "logs me in" do
+      visit homes_url
+      click_link 'Log In'
+      page.should have_content("Username")
+      fill_in 'user_session[login]', :with => 'testuser'
+      fill_in 'user_session[password]', :with => 'good2012'
+      click_button 'Login'
+      page.should have_content("Successfully logged in")
     end
   end
 end
