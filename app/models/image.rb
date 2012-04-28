@@ -8,8 +8,8 @@
 #  file_type   :string(255)
 #  name        :string(255)
 #  description :text
-#  created_at  :datetime
-#  updated_at  :datetime
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
 #
 
 class Image < ActiveRecord::Base
