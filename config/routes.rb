@@ -13,7 +13,12 @@ RubyPhotogallery::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-    resources :homes
+  resource :account, :controller => "users"
+  resources :users
+  resource :user_session
+  #root :controller => "user_sessions", :action => "new"
+
+  #root :controller => "user_sessions", :action => "new"
 
   # Sample resource route with options:
   #   resources :products do
