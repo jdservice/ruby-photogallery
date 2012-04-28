@@ -5,7 +5,7 @@
 #  id                :integer(4)      not null, primary key
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null
-#  login             :string(255)     not null
+#  username          :string(255)     not null
 #  email             :string(255)     not null
 #  crypted_password  :string(255)     not null
 #  password_salt     :string(255)     not null
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   acts_as_authentic
   
   def name
-    login
+    username
   end
 
   def destroy
