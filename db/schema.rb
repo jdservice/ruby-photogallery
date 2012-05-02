@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20120423174323) do
   create_table "users", :force => true do |t|
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
-    t.string   "login",                            :null => false
+    t.string   "username",                         :null => false
     t.string   "email",                            :null => false
     t.string   "crypted_password",                 :null => false
     t.string   "password_salt",                    :null => false
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(:version => 20120423174323) do
   end
 
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"
-  add_index "users", ["login"], :name => "index_users_on_login"
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
+  add_index "users", ["username"], :name => "index_users_on_username"
 
 end
