@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Homes", :type => :request do
   before :each do
-    User.create(:login => 'testuser', :password => 'good2012')
+    User.create(:username => 'testuser', :password => 'good2012')
   end
   
   describe "POST /homes" do
