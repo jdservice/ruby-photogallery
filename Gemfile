@@ -7,7 +7,7 @@ gem 'rails', '3.2'
 
 gem 'mysql2'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
-gem 'authlogic', :git => "git://github.com/binarylogic/authlogic.git"
+gem 'authlogic'
 gem 'squeel'
 
 # gem 'image_science'
