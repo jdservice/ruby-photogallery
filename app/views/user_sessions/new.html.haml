@@ -7,23 +7,24 @@
 
 %br
 
-= form_for @user_session, :url => user_session_path do |f|
-  %table
-    %tr
-      %td
-        = f.label :username
-      %td
-        = f.text_field :username, { :autofocus => true}
-    %tr
-      %td
-        = f.label :password
-      %td
-        = f.password_field :password
-    %tr
-      %td
-        = f.check_box :remember_me
-      %td
-        = f.label :remember_me
-  %br
-  = f.submit "Login"
+#login-form
+  = form_for @user_session, :url => user_session_path do |f|
+    %table
+      %tr
+        %td
+          = f.label :username
+        %td
+          = f.text_field :username, { :autofocus => true}
+      %tr
+        %td
+          = f.label :password
+        %td
+          = f.password_field :password
+      %tr
+        %td
+          = f.check_box :remember_me
+        %td
+          = f.label :remember_me
+    %br
+    = f.submit "Login"
   

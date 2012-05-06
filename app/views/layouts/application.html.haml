@@ -1,0 +1,22 @@
+!!! 5
+%html
+  %head
+    %title
+      Ruby Photo Gallery
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    #login-block
+      - if !current_user
+        = link_to "Register", new_account_path |
+        = link_to "Login", new_user_session_path
+      - else
+        = link_to "My Account", account_path |
+        = link_to "Logout", user_session_path, :method => :delete  
+
+    = yield
+
+    %br
+
