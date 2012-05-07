@@ -1,8 +1,9 @@
-%h2
-  My Account
+%header.page-top
+  My Information
   
 - if flash[:notice]
-  = flash[:notice] 
+  %status.flash-message
+    = flash[:notice] 
   %br  
 %br
 
@@ -50,5 +51,4 @@
 
 
 %br
-
 = link_to 'Edit', edit_account_path
