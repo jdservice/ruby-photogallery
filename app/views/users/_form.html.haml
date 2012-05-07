@@ -3,19 +3,19 @@
     %td
       = form.label :username
     %td
-      = form.text_field :username, { :autofocus => true}
+      = form.text_field :username, :autofocus => true, :size => 15
   %tr
     %td
       = form.label :email
     %td
-      = form.text_field :email
+      = form.text_field :email, :size => 40
   %tr
     %td
       = form.label :password
     %td
-      = form.password_field :password
+      = form.password_field :password, :size => 30
   %tr
     %td
       = form.label :password_confirmation
     %td
-      = form.password_field :password_confirmation
+      = form.password_field :password_confirmation, :size => 30

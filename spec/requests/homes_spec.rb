@@ -17,7 +17,7 @@ describe "Homes", :type => :request do
       click_button 'Submit'
       page.should have_content("Account registered!")
             
-      click_link 'Logout'
+      click_link 'Log out'
       # page.driver.browser.switch_to.alert.accept
       # click_button 'OK'
       page.should have_content("Successfully logged out")     
