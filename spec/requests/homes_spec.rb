@@ -2,8 +2,13 @@ require 'spec_helper'
 
 describe "Homes", :type => :request do
   before :each do
-    User.create(:username => 'testuser', :password => 'good2012')
+    User.create(:username => 'testuser', :password => 'good2012', :password_confirmation => 'hello', :email => 'test@email.com')
   end
+  
+#  it 'should create a user with an encrypted password" do
+#    u = User.create(:username => 'testuser', :password => 'good2012', :password_confirmation => 'hello', :email => 'test@email.com')
+#    u.crypted_password.should_not eq('hello')
+#  end
   
   describe "POST /homes" do
     it "should register me, logout and login me again" do

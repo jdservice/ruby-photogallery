@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/binarylogic/authlogic.git
-  revision: b91683d71fbeb5c9dabe1b675982b03792ac4a20
-  specs:
-    authlogic (3.1.0)
-      activerecord (>= 3.0.7)
-      activerecord (>= 3.0.7)
-
-GIT
   remote: git://github.com/ctran/annotate_models.git
   revision: ff1131daee8c03dbcc4966b7914b77a7e3a62f02
   specs:
@@ -44,6 +36,9 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.7)
     arel (3.0.2)
+    authlogic (3.1.0)
+      activerecord (>= 3.0.7)
+      activerecord (>= 3.0.7)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -184,7 +179,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate!
-  authlogic!
+  authlogic
   coffee-rails
   cucumber-rails
   haml-rails
