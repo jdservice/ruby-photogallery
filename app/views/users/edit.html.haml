@@ -1,11 +1,12 @@
-%h2
-  Edit My Account
+%header.page-top
+  Update My Information
   
 - if flash[:notice]
-  = flash[:notice]
-  %br
-
+  %status.flash-message
+    = flash[:notice] 
+  %br  
 %br
+
 .user
 = form_for @user do |f|
 

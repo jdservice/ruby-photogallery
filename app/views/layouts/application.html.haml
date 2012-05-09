@@ -8,13 +8,34 @@
     = csrf_meta_tags
 
   %body
+
     #login-block
       - if !current_user
-        = link_to "Register", new_account_path |
-        = link_to "Login", new_user_session_path
+        = link_to_unless_current "Register", new_account_path
+        |
+        = link_to_unless_current "Login", new_user_session_path
       - else
-        = link_to "My Account", account_path |
-        = link_to "Logout", user_session_path, :method => :delete  
+        = current_user.username
+        |
+        = link_to_unless_current "Home", homes_path
+        |
+        = link_to_unless_current "My Info", account_path
+        |
+        = link_to "Log out", user_session_path, :method => :delete  
+
+    %header.gallery-top
+      Ruby Photograph Gallery
+
+    %br
+    %header.tabs-top
+      %ul
+        %li
+          Home
+        %li
+          Upload
+        %li
+          Admin
+    %br
 
     = yield
 

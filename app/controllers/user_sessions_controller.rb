@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Successfully logged in"
-      redirect_back_or_default account_url
+      redirect_to homes_path
     else
       flash[:notice] = "Login failed"
       render :action => :new
