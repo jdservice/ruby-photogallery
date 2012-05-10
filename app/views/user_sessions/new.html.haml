@@ -1,0 +1,30 @@
+%header.page-top
+  Log into the Ruby Photograph Gallery
+  
+- if flash[:notice]
+  %status.flash-message
+    = flash[:notice] 
+  %br  
+%br
+
+#login-form
+  = form_for @user_session, :url => user_session_path do |f|
+    %table
+      %tr
+        %td
+          = f.label :username
+        %td
+          = f.text_field :username, :autofocus => true, :size => 15
+      %tr
+        %td
+          = f.label :password
+        %td
+          = f.password_field :password, :size => 30
+      %tr
+        %td
+          = f.check_box :remember_me
+        %td
+          = f.label :remember_me
+    %br
+    = f.submit "Login"
+  
