@@ -43,21 +43,35 @@ body
     color: $white
 
   .tabs-top
+    width: 100%
     font-weight: bold
     font-size: 14px
     font-family: Helvetica, Arial, sans-serif
     ul
+      background-color: $black
       margin: 0
-      padding: 5px
+      padding: 0px
       float: left
-      background-color: $white
       color: $grey
       width: 100%
-    li
-      display: inline
-      padding: 0px
-      border: 1px solid $dark-grey
-
+      li
+        display: inline
+        float: left
+        a 
+          float: left
+          text-decoration: none
+          color: $blue
+          padding: 10.5px 11px
+          background-color: $black
+          &:hover
+            color: $blue
+            background-color: $white 
+          &:current
+            color: $blue
+            background-color: $black 
+          &:visited
+            color: $red
+    
   .flash-message
     font-weight: normal
     font-size: 16px

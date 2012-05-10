@@ -30,13 +30,12 @@
     %header.tabs-top
       %ul
         %li
-          Home
+          = link_to "Home", homes_path
         %li
-          Upload
+          = link_to "Upload", homes_path
         %li
-          Admin
+          = link_to "Admin", homes_path
     %br
-
     = yield
 
     %br
