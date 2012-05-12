@@ -1,0 +1,13 @@
+#login
+  - if !current_user
+    = link_to_unless_current "Register", new_account_path
+    |
+    = link_to_unless_current "Login", new_user_session_path
+  - else
+    = current_user.username
+    |
+    = link_to_unless_current "Home", homes_path
+    |
+    = link_to_unless_current "My Info", account_path
+    |
+    = link_to "Log out", user_session_path, :method => :delete  
