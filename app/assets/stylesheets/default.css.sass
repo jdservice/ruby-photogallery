@@ -1,4 +1,6 @@
-@import "colors"
+@import "shared/colors"
+
+@import 'shared/layout_blocks'
 
 h2
   font-family: Helvetica, Arial, sans-serif
@@ -18,77 +20,70 @@ body
     text-decoration: underline
     color: $blue 
 
-  #login-block
-    font-size: 12px
-    color: $white
-    font-family: Helvetica, Arial, sans-serif
-    display: block
-    float: right
-    margin: auto
 
-  .gallery-top
-    font-weight: bold
-    font-size: 36px
-    font-family: Helvetica, Arial, sans-serif
-    display: block
-    margin: auto
-    color: $white
+.gallery-top
+  font-weight: bold
+  font-size: 36px
+  font-family: Helvetica, Arial, sans-serif
+  display: block
+  margin: auto
+  color: $white
 
-  .page-top
-    font-weight: bold
-    font-size: 18px
-    font-family: Helvetica, Arial, sans-serif
-    display: block
-    margin: 20px 0px 0px 0px
-    color: $white
+.page-top
+  font-weight: bold
+  font-size: 18px
+  font-family: Helvetica, Arial, sans-serif
+  // display: block
+  margin: 20px 0px 0px 0px
+  color: $white
 
-  .tabs-top
+.tabs-top
+  width: 100%
+  font-weight: bold
+  font-size: 14px
+  font-family: Helvetica, Arial, sans-serif
+  ul
+    background-color: $black
+    margin: 0
+    padding: 0px
+    float: left
+    color: $grey
     width: 100%
-    font-weight: bold
-    font-size: 14px
-    font-family: Helvetica, Arial, sans-serif
-    ul
-      background-color: $black
-      margin: 0
-      padding: 0px
+    li
+      display: inline
       float: left
-      color: $grey
-      width: 100%
-      li
-        display: inline
+      a 
         float: left
-        a 
-          float: left
-          text-decoration: none
+        text-decoration: none
+        color: $blue
+        padding: 10.5px 11px
+        background-color: $black
+        &:hover
           color: $blue
-          padding: 10.5px 11px
-          background-color: $black
-          &:hover
-            color: $blue
-            background-color: $white 
-          &:current
-            color: $blue
-            background-color: $black 
-          &:visited
-            color: $red
-    
-  .flash-message
-    font-weight: normal
-    font-size: 16px
-    padding: 4px
-    font-family: Helvetica, Arial, sans-serif
-    display: block
-    margin: 20px 0px 0px 0px
-    color: $white
-    background: $green
+          background-color: $white 
+        &:current
+          color: $blue
+          background-color: $black 
+        &:visited
+          color: $red
   
-  .thumbs
-    border-collapse: separate
-    border-spacing: 20px 20px
-    border: 1px
-    width: 100%
-    background: $slate-grey
-    height: 100px
-    td
-      padding: 20px
+.flash-message
+  font-weight: normal
+  font-size: 16px
+  padding: 4px
+  font-family: Helvetica, Arial, sans-serif
+  display: block
+  margin: 20px 0px 0px 0px
+  color: $white
+  background: $green
+
+.thumbs
+  border-collapse: separate
+  border-spacing: 20px 20px
+  border: 1px
+  width: 100%
+  // background: $slate-grey
+  height: 100px
+  td
+    padding: 20px
 
