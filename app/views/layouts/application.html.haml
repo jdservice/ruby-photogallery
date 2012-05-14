@@ -8,19 +8,25 @@
     = csrf_meta_tags
 
   %body
+  
+    #outside-block
+    
     #outer-block
   
       #login-block
         = render :partial => 'shared/login'
 
-      %header.gallery-top
-        Ruby Photograph Gallery
+      #header-block
+        %header.gallery-top
+          Ruby Photograph Gallery
 
       #navigation-block
         = render :partial => 'shared/navigation'
 
       #flash-message-block
         = render :partial => 'shared/flash_message'
+
+      #sidebar-block
 
       #main-content-block
         = yield

@@ -1,11 +1,5 @@
 %header.page-top
   Log into the Ruby Photograph Gallery
-  
-- if flash[:notice]
-  %status.flash-message
-    = flash[:notice] 
-  %br  
-%br
 
 #login-form
   = form_for @user_session, :url => user_session_path do |f|

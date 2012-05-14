@@ -17,6 +17,7 @@ RubyPhotogallery::Application.routes.draw do
   resources :users
   resource :user_session
   resources :homes
+  resources :upload_images
 
   #root :controller => "user_sessions", :action => "new"
 
