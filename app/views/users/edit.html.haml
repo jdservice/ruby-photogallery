@@ -1,0 +1,12 @@
+%header.page-top
+  Update My Information
+  
+.user
+= form_for @user do |f|
+
+  = render :partial => "form", :object => f
+
+  %br
+  = f.submit  
+%br        
+       

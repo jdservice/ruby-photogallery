@@ -1,0 +1,14 @@
+%header.page-top
+  Upload Images
+  
+.upload
+  = form_for :upload, :url => {:controller => 'UploadImage', :action => 'uploadFile'}, :html => {:multipart => true} do |form|
+    %table
+      %tr
+        %td
+          = form.label :name
+        %td
+          = form.file_field :upload
+    %br
+      = form.submit "Upload"
+

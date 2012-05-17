@@ -1,0 +1,43 @@
+!!! 5
+%html
+  %head
+    %title
+      Ruby Photo Gallery
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+  
+    #outside-block
+    
+    #outer-block
+  
+      #login-block
+        = render :partial => 'shared/login'
+
+      #header-block
+        %header.gallery-top
+          Ruby Photograph Gallery
+
+      #navigation-block
+        = render :partial => 'shared/navigation'
+
+      #flash-message-block
+        = render :partial => 'shared/flash_message'
+
+      #sidebar-block
+
+      #main-content-block
+        = yield
+      
+      #footer-outer-block
+      
+        #footer-inner-block
+          &copy; 
+          = Time.now.year
+          Released by the Ruby Photo Gallery Gang under the MIT License
+      
+    #end-block
+    
+        

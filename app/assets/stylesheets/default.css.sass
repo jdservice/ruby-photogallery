@@ -1,0 +1,91 @@
+@import "shared/colors"
+
+@import 'shared/layout_blocks'
+
+h2
+  font-family: Helvetica, Arial, sans-serif
+  color: $deep-pink
+  
+body
+  font-family: Helvetica, Arial, sans-serif
+  font-size: 12px
+  color: $white
+  background: $slate-grey
+  margin: 0 0
+
+  a 
+    text-decoration: underline
+    color: $white
+  a:hover
+    text-decoration: underline
+    color: $blue 
+
+.gallery-top
+  font-weight: bold
+  font-size: 36px
+  font-family: Helvetica, Arial, sans-serif
+  display: block
+  margin: auto
+  color: $white
+
+.page-top
+  font-weight: bold
+  font-size: 18px
+  font-family: Helvetica, Arial, sans-serif
+  // display: block
+  margin: 20px 0px 0px 0px
+  color: $white
+
+.tabs-top
+  width: 100%
+  font-weight: bold
+  font-size: 14px
+  font-family: Helvetica, Arial, sans-serif
+  ul
+    background-color: $black
+    margin: 0
+    padding: 0px
+    float: left
+    color: $grey
+    width: 100%
+    li
+      display: inline
+      float: left
+      a 
+        float: left
+        text-decoration: none
+        color: $white
+        padding: 10.5px 11px
+        background-color: $black
+        &:hover
+          color: $white
+          background-color: $light-grey 
+        &:active
+          color: $blue
+          background-color: $light-blue
+    li.menu_selected
+      a
+        background-color: $slate_blue
+
+
+.flash-message
+  font-weight: normal
+  font-size: 16px
+  padding: 4px
+
+  font-family: Helvetica, Arial, sans-serif
+  display: block
+  margin: 20px 0px 0px 0px
+  color: $white
+  background: $green
+
+.thumbs
+  border-collapse: separate
+  border-spacing: 20px 20px
+  border: 1px
+  width: 100%
+  // background: $slate-grey
+  height: 100px
+  td
+    padding: 20px
+
