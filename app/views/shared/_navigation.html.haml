@@ -2,6 +2,7 @@
   %ul
     %li
       = menu_link_to "Home", homes_path
-    %li
-      = menu_link_to "Upload", upload_images_path
+    - if current_user
+      %li
+        = menu_link_to "Upload", upload_images_path
 
